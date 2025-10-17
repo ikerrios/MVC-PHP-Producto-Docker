@@ -93,4 +93,4 @@ Contenido bajo licencia Creative Commons BY-NC-SA 4.0. Consulta LICENSE para det
 
 ## Autor
 
-Creado con 🎾 por **cgarcher** y **2DAW Hellín Costa**
+Creado con 🎾 por **cgarcher** y **2DAW Hellín Tech**
