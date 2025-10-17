@@ -50,14 +50,12 @@ Variables de entorno de la base de datos (definidas en `docker-compose.yml`):
    cd MVC-PHP-Producto-Docker
    ```
 
-2. (Opcional) Agrega scripts SQL de inicialización en la carpeta `sql/`.
-
-3. Levanta los servicios:
+2. Levanta los servicios:
    ```bash
    docker-compose up --build
    ```
 
-4. Accede a:
+3. Accede a:
    - Aplicación PHP: [http://localhost:8084](http://localhost:8084)
    - phpMyAdmin: [http://localhost:8085](http://localhost:8085)
      - Servidor: `db`
