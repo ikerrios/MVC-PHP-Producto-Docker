@@ -1,35 +1,25 @@
-version: "3.9"
+#Declara los servicios que se van a levantar (app y db).
+#Define variables de entorno comunes.
+#Define el volumen db_data para guardar los datos de la base y que no se pierdan al reiniciar el contenedor.
 
 services:
-  web:
+  app:
     build: .
     ports:
-      - "8084:80"
-    volumes:
-      - .:/var/www/html
+      - "80:80"
     depends_on:
       - db
-
+    environment:
+      - DB_HOST=db
+      - DB_NAME=myapp_db
+      - DB_USER=root
+      - DB_PASS=password
   db:
-    image: mysql:8.0
-    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: products_db
-      MYSQL_USER: usuario_app
-      MYSQL_PASSWORD: clave_app
-    ports:
-      - "3306:3306"
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: myapp_db
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - "8085:80"
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-    depends_on:
-      - db
+volumes:
+  db_data:
