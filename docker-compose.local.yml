@@ -12,6 +12,7 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./sql/local/products.sql:/docker-entrypoint-initdb.d/products.sql
 
   app:
     build: .
